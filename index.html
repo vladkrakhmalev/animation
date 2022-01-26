@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .animation {
+      width: 700px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #000;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-gap: 20px;
+    }
+    .animation__element {
+      background-image: url('img-generator/instr/simple.png');
+      background-repeat: no-repeat;
+      background-size: 1100px;
+      width: 150px;
+      height: 150px;
+      cursor: pointer;
+    }
+    .animation__element::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-image: url('img-generator/instr/.png');
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    .animation__main {
+      grid-column-start: 2;
+      grid-column-end: 4;
+      grid-row-start: 2;
+      grid-row-end: 4;
+      background-image: url('img-generator/instr/simple.png');
+      background-repeat: no-repeat;
+      background-size: 1200px;
+      background-position: -400px -240px;
+    }
+    .animation__title {
+      height: 100px;
+      grid-column-start: 2;
+      grid-column-end: 4;
+      grid-row-start: 4;
+      grid-row-end: 5;
+      background-image: url('img-generator/instr/simple.png');
+      background-repeat: no-repeat;
+      background-size: 1200px;
+      background-position: -400px -585px;
+    }
+    .animation__element._1 {
+      background-position: -200px -120px;
+    }
+    .animation__element._2 {
+      background-position: -400px -82px;
+    }
+    .animation__element._3 {
+      background-position: -565px -85px;
+    }
+    .animation__element._4 {
+      background-position: -720px -95px;
+    }
+    .animation__element._5 {
+      background-position: -203px -276px;
+    }
+    .animation__element._6 {
+      margin-top: 25px;
+      height: 100px;
+      background-size: 592px;
+      background-position: -372px -127px;
+    }
+    .animation__element._7 {
+      background-position: -138px -326px;
+    background-size: 850px;
+    }
+    .animation__element._8 {
+      background-position: -585px -349px;
+      background-size: 900px;
+    }
+    .animation__element._1:hover {
+      background-image: url('img-generator/instr/hover-1.png');
+    }
+    .animation__element._2:hover {
+      background-image: url('img-generator/instr/hover-2.png');
+    }
+    .animation__element._3:hover {
+      background-image: url('img-generator/instr/hover-3.png');
+    }
+    .animation__element._4:hover {
+      background-image: url('img-generator/instr/hover-4.png');
+    }
+    .animation__element._5:hover {
+      background-image: url('img-generator/instr/hover-5.png');
+    }
+    .animation__element._6:hover {
+      background-image: url('img-generator/instr/hover-6.png');
+    }
+    .animation__element._7:hover {
+      background-image: url('img-generator/instr/hover-7.png');
+    }
+    .animation__element._8:hover {
+      background-image: url('img-generator/instr/hover-8.png');
+    }
+
+
+
+    .animation__element._1:hover ~ .animation__main {
+      background-image: url('img-generator/instr/hover-1.png');
+    }
+    .animation__element._2:hover ~ .animation__main {
+      background-image: url('img-generator/instr/hover-2.png');
+    }
+    .animation__element._3:hover ~ .animation__main {
+      background-image: url('img-generator/instr/hover-3.png');
+    }
+    .animation__element._4:hover ~ .animation__main {
+      background-image: url('img-generator/instr/hover-4.png');
+    }
+    .animation__element._5:hover ~ .animation__main {
+      background-image: url('img-generator/instr/hover-5.png');
+    }
+    .animation__element._6:hover ~ .animation__main {
+      background-image: url('img-generator/instr/hover-6.png');
+    }
+    .animation__element._7:hover ~ .animation__main {
+      background-image: url('img-generator/instr/hover-7.png');
+    }
+    .animation__element._8:hover ~ .animation__main {
+      background-image: url('img-generator/instr/hover-8.png');
+    }
+
+
+    
+    .animation__element._1:hover ~ .animation__title {
+      background-image: url('img-generator/instr/hover-1.png');
+    }
+    .animation__element._2:hover ~ .animation__title {
+      background-image: url('img-generator/instr/hover-2.png');
+    }
+    .animation__element._3:hover ~ .animation__title {
+      background-image: url('img-generator/instr/hover-3.png');
+    }
+    .animation__element._4:hover ~ .animation__title {
+      background-image: url('img-generator/instr/hover-4.png');
+    }
+    .animation__element._5:hover ~ .animation__title {
+      background-image: url('img-generator/instr/hover-5.png');
+    }
+    .animation__element._6:hover ~ .animation__title {
+      background-image: url('img-generator/instr/hover-6.png');
+    }
+    .animation__element._7:hover ~ .animation__title {
+      background-image: url('img-generator/instr/hover-7.png');
+    }
+    .animation__element._8:hover ~ .animation__title {
+      background-image: url('img-generator/instr/hover-8.png');
+    }
+    .animation__hide::after {
+      position:absolute;
+      width:0;
+      height:0;
+      overflow:hidden;
+      z-index:-1;
+      content: 
+        url('img-generator/instr/simple.png')
+        url('img-generator/instr/hover-1.png')
+        url('img-generator/instr/hover-2.png')
+        url('img-generator/instr/hover-3.png')
+        url('img-generator/instr/hover-4.png')
+        url('img-generator/instr/hover-5.png')
+        url('img-generator/instr/hover-6.png')
+        url('img-generator/instr/hover-7.png')
+        url('img-generator/instr/hover-8.png');
+    }
+    @media (max-width: 700px) {
+      .animation {
+        width: 100%;
+        border: none;
+        grid-template-columns: 1fr 1fr 1fr;
+        padding: 0;
+        grid-gap: 0;
+      }
+      .animation__element {
+        margin: 0 auto;
+      }
+      .animation__element._5 {
+        height: 150px;
+      }
+      .animation__element._9 {
+        height: 100px;
+      }
+      .animation__element:nth-child(3n + 1) {
+        grid-column: 1;
+      }
+      .animation__element:nth-child(3n) {
+        grid-column: 2;
+      }
+      .animation__main {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row: span 2;
+        height: 250px;
+        width: 300px;
+        margin: 0 auto;
+        background-size: 1000px;
+        background-position: -334px -200px;
+      }
+      .animation__title {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row: span 1;
+        width: 300px;
+        margin: 0 auto;
+        background-position: -429px -586px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="animation">
+    <div class="animation__element _1"></div>
+    <div class="animation__element _2"></div>
+    <div class="animation__element _3"></div>
+    <div class="animation__element _4"></div>
+    <div class="animation__element _5"></div>
+    <div class="animation__element _6"></div>
+    <div class="animation__element _7"></div>
+    <div class="animation__element _8"></div>
+    <div class="animation__main"></div>
+    <div class="animation__title"></div>
+  </div>
+  <div class="animation__hide"></div>
+</body>
+</html>
